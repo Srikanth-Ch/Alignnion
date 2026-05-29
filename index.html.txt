@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alignnion</title>
+</head>
+<body>
+  <h1>Welcome to Alignnion</h1>
+  <p>Portfolio | QA Articles | AI Insights</p>
+</body>
+</html>
