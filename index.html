@@ -1,92 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SrikanthC - Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header class="header">
-    <nav class="nav-container">
-      <button class="tab-link active" onclick="openTab(event, 'home')">Home</button>
-      <button class="tab-link" onclick="openTab(event, 'portfolio')">SrikanthC‑Portfolio</button>
-      <button class="tab-link" onclick="openTab(event, 'qa-playbook')">QA Playbook</button>
-      <button class="tab-link" onclick="openTab(event, 'ai-lens')">AI Lens</button>
-      <button class="tab-link" onclick="openTab(event, 'contact')">Contact</button>
-    </nav>
-  </header>
+<header class="header">
+  <nav class="nav-container">
+    <button class="tab-link active" onclick="openTab(event, 'home')">Home</button>
+    <button class="tab-link" onclick="openTab(event, 'qa-playbook')">QA Playbook</button>
+    <button class="tab-link" onclick="openTab(event, 'ai-lens')">AI Lens</button>
+    <button class="tab-link" onclick="openTab(event, 'contact')">Contact</button>
+  </nav>
+</header>
 
-  <main class="container">
-    <!-- Home Tab -->
-    <section id="home" class="tab-content active">
-      <div class="hero">
-        <h1>Srikanth C</h1>
-        <p>QA Automation Architect & Lead</p>
-        <a href="#" class="hero-btn" onclick="openTab(event, 'portfolio')">View My Portfolio</a>
-      </div>
-      <div class="summary-section">
-        <h2>Welcome</h2>
-        <p>
-          QA Automation Architect/Lead with 15 years of experience in healthcare, finance, and insurance domains.
-          Skilled in Selenium, Playwright, API automation, and integrating GenAI into QA workflows.
-        </p>
-        <p>
-          This site also serves as a hub for <strong>QA Technical Interview Questions</strong> and
-          <strong>QA AI‑related blogging</strong>, designed to help professionals gain practical, hands‑on experience
-          and stay ahead in the evolving world of quality engineering.
-        </p>
-      </div>
-    </section>
+<main class="container">
+  <!-- Home Tab -->
+  <section id="home" class="tab-content active">
+    <div class="hero">
+      <h1>Srikanth C</h1>
+      <p>QA Automation Architect & Lead</p>
+    </div>
+    <div class="summary-section">
+      <h2>Welcome</h2>
+      <p>
+        QA Automation Architect/Lead with 15 years of experience in healthcare, finance, and insurance domains.
+        Skilled in Selenium, Playwright, API automation, and integrating GenAI into QA workflows.
+      </p>
+      <p>
+        This site also serves as a hub for <strong>QA Technical Interview Questions</strong> and
+        <strong>QA AI‑related blogging</strong>, designed to help professionals gain practical, hands‑on experience.
+      </p>
+    </div>
 
-    <!-- Portfolio Tab -->
-    <section id="portfolio" class="tab-content">
-      <h2>Project Portfolio</h2>
-      <div class="project-block">
-        <span class="project-name">AI‑Powered No‑Code Test Automation Platform</span>
-        <p>Delivered a no‑code automation platform powered by GenAI and MCP tools, reducing manual authoring effort by 70%.</p>
-      </div>
-      <div class="project-block">
-        <span class="project-name">Enterprise RabbitMQ Event‑Driven Validation Testing</span>
-        <p>Reusable workflows for AWS Lambda and Messaging Queue validation, reducing event‑driven defects in production.</p>
-      </div>
-      <div class="project-block">
-        <span class="project-name">API Performance Benchmarking Suite</span>
-        <p>Built a scalable API sandbox framework with continuous performance regression detection.</p>
-      </div>
-    </section>
+    <!-- Portfolio Content merged here -->
+    <h2>Portfolio Summary</h2>
+    <p>~15 years building enterprise scale automation across healthcare, finance, and insurance...</p>
 
-    <!-- QA Playbook Tab -->
-    <section id="qa-playbook" class="tab-content">
-      <h2>QA Playbook</h2>
-      <p>Best practices, frameworks, and strategies for building scalable QA automation across industries.</p>
-    </section>
+    <h3>Professional Experience</h3>
+    <ul>
+      <li><strong>Senior Automation Test Analyst</strong> – Experian India (2022–2026)</li>
+      <li><strong>Test Lead</strong> – Adroitent ITES Global Services (2014–2022)</li>
+      <li><strong>Techno Functional Consultant</strong> – Sonata Software (2013)</li>
+      <li><strong>QA Engineer</strong> – Jasper Industries (2011–2013)</li>
+    </ul>
 
-    <!-- AI Lens Tab -->
-    <section id="ai-lens" class="tab-content">
-      <h2>AI Lens</h2>
-      <p>Exploring Generative AI, LLMs, and their integration into QA workflows to accelerate releases and improve quality.</p>
-    </section>
+    <h3>Projects</h3>
+    <div class="project-block">…</div>
 
-    <!-- Contact Tab -->
-    <section id="contact" class="tab-content">
-      <h2>Contact</h2>
-      <p>Email: srikanth@example.com</p>
-      <p>LinkedIn: linkedin.com/in/srikanthc</p>
-    </section>
-  </main>
+    <h3>Awards</h3>
+    <ul>…</ul>
 
-  <script>
-    function openTab(evt, tabName) {
-      const tabContents = document.querySelectorAll(".tab-content");
-      const tabLinks = document.querySelectorAll(".tab-link");
+    <h3>Certifications</h3>
+    <ul>…</ul>
 
-      tabContents.forEach(content => content.classList.remove("active"));
-      tabLinks.forEach(link => link.classList.remove("active"));
+    <h3>Core Strengths</h3>
+    <ul>…</ul>
 
-      document.getElementById(tabName).classList.add("active");
-      evt.currentTarget.classList.add("active");
-    }
-  </script>
-</body>
-</html>
+    <h3>Interests</h3>
+    <p>Lifelong Learner | AI Research | Technical Blogging</p>
+  </section>
+
+  <!-- QA Playbook Tab -->
+  <section id="qa-playbook" class="tab-content">
+    <h2>QA Playbook</h2>
+    <p>Best practices, frameworks, and strategies for scalable QA automation.</p>
+  </section>
+
+  <!-- AI Lens Tab -->
+  <section id="ai-lens" class="tab-content">
+    <h2>AI Lens</h2>
+    <p>Exploring Generative AI, LLMs, and their integration into QA workflows.</p>
+  </section>
+
+  <!-- Contact Tab -->
+  <section id="contact" class="tab-content">
+    <h2>Contact</h2>
+    <p>Email: srikanth@example.com</p>
+    <p>LinkedIn: linkedin.com/in/srikanthc</p>
+  </section>
+</main>
