@@ -1,134 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      margin: 0;
-      padding: 20px;
-      color: #333;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .portfolio {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .card h2 {
-      margin: 0;
-      font-size: 20px;
-      color: #222;
-    }
-    .card h3 {
-      margin: 5px 0;
-      font-size: 16px;
-      color: #555;
-    }
-    .card p {
-      margin: 10px 0;
-      line-height: 1.5;
-    }
-    .card ul {
-      margin: 10px 0;
-      padding-left: 20px;
-    }
-    .card ul li {
-      margin-bottom: 5px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SrikanthC‑Portfolio</title>
+    <!-- Semantic FontAwesome Icons -->
+    <script src="https://cloudflare.com"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0f172a;
+            --bg-light: #f8fafc;
+            --text-main: #334155;
+            --text-dark: #0f172a;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            color: #93c5fd;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            max-width: 850px;
+            margin: 0 auto;
+            color: #cbd5e1;
+            text-align: justify;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        section h3 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        section h3 i {
+            color: var(--primary);
+        }
+
+        /* Responsive Grid Formats */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Domain Cards */
+        .domain-card {
+            background: var(--bg-light);
+            padding: 1.25rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .domain-card h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Professional Experience Timeline */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .job-card {
+            border-left: 3px solid var(--border);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 4px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--primary);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0.75rem;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .job-company {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .job-date {
+            background: #dbeafe;
+            color: var(--primary-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .job-card ul, .project-card ul {
+            list-style-type: none;
+        }
+
+        .job-card li, .project-card li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-card li::before, .project-card li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Project Display Layout */
+        .project-card {
+            background: var(--bg-light);
+            padding: 1.75rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary);
+        }
+
+        .project-card h4 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-loc {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+
+        /* Visual Pill Tags & Badges */
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            background: #e2e8f0;
+            color: var(--text-dark);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .badge-cert {
+            background: #f0fdf4;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .badge-award {
+            background: #fffbeb;
+            color: #92400e;
+            border: 1px solid #fde68a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        footer {
+            background: var(--secondary);
+            color: #94a3b8;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .job-header { flex-direction: column; gap: 0.5rem; }
+            section { padding: 1.5rem; }
+        }
+    </style>
 </head>
 <body>
-  <h1>📂 Project Portfolio</h1>
-  <div class="portfolio">
 
-    <div class="card">
-      <h2>Experian India Services</h2>
-      <h3>Automation Lead | May 2025 – Feb 2026 | UK&I</h3>
-      <p><strong>Project:</strong> BIQ Legacy</p>
-      <p><strong>Tools:</strong> Java, Spring, AWS, JavaScript, Postman, Docker, Kubernetes, Playwright, Python BDD, GitHub Copilot, SQL, MongoDB</p>
-      <p>BusinessIQ Legacy is a key revenue-generating product in the Business Information unit, offering tailored financial insights to enhance credit reporting and risk management.</p>
-    </div>
+    <header>
+        <div class="header-container">
+            <h1>QA Automation Architect / Lead</h1>
+            <h2>~15 Years Building Enterprise Scale Automation</h2>
+            <p class="summary">
+                QA Automation Architect/Lead with ~ 15 years building enterprise scale automation across healthcare, finance, and insurance. Experience in architecting robust frameworks using Selenium, .Net C#, Playwright, Python, and API microservices automation, delivering faster execution, higher coverage. Visionary contribution to integrating GenAI, LLM, RAG, MCP into QA workflows, aligning test strategy with business objectives, and empowering QA teams to accelerate releases, reduce costs, and transform quality engineering into a strategic business advantage to align with stakeholders. Driving stakeholder satisfaction by strengthening product quality through consumer reports, enforcing quality gateways, and implementing rollback‑ready test strategies to reduce release risks, downstream implications.
+            </p>
+        </div>
+    </header>
 
-    <div class="card">
-      <h2>Experian India Services</h2>
-      <h3>Automation Lead | May 2023 – Apr 2025 | UK&I</h3>
-      <p><strong>Project:</strong> Bottlenecks (NIKE Alerts & Triggers)</p>
-      <p><strong>Tools:</strong> C#, MVC.Net Core, AWS Cloud Watch, Message Queues, Postman, AWS DynamoDB, JIRA, AWS Lambda, Microservices</p>
-      <p>Migrated legacy mainframe services to scalable cloud-based architecture using AWS Lambda, queues, and microservices.</p>
-    </div>
+    <main>
+        <!-- Domain Portfolio -->
+        <section>
+            <h3><i class="fa-solid fa-briefcase"></i> Domain & Product Portfolio</h3>
+            <div class="grid-2">
+                <div class="domain-card">
+                    <h4>Healthcare</h4>
+                    <p>Wolters Kluwer (thePoint, Nursing Concepts, DocuCare, OvidMD/SP, Phoenix) | EngagePoint Financials | Green Clinical (EHR/EMR/PHR)</p>
+                </div>
+                <div class="domain-card">
+                    <h4>Fintech & Credit</h4>
+                    <p>Experian Services (EBC, EBA, BIQ Legacy, NIKE, Bottlenecks)</p>
+                </div>
+                <div class="domain-card">
+                    <h4>Enterprise ERP</h4>
+                    <p>Microsoft CRM (Dynamics 365 Core Platforms)</p>
+                </div>
+                <div class="domain-card">
+                    <h4>E-commerce & Travel</h4>
+                    <p>TUI Group (Global Booking & Reservation Ecosystem)</p>
+                </div>
+            </div>
+        </section>
 
-    <div class="card">
-      <h2>Experian India Services</h2>
-      <h3>Automation Lead | Oct 2022 – Apr 2023 | UK&I</h3>
-      <p><strong>Project:</strong> Experian Business Customer (EBC)</p>
-      <p><strong>Tools:</strong> C#, MVC.Net Core, Azure DevOps, SQL Server, Specflow N-unit, AWS Cloud, Postman, JIRA</p>
-      <p>Empowered organizations with verified credit reports and background checks via customer-facing applications.</p>
-    </div>
+        <!-- Core Strengths -->
+        <section>
+            <h3><i class="fa-solid fa-key"></i> Core Strengths</h3>
+            <div class="badge-container">
+                <span class="badge">Test Automation Strategy & Framework Design</span>
+                <span class="badge">API Automation & Cloud Integration (AWS, Azure)</span>
+                <span class="badge">CI/CD Pipeline Integration & DevOps Collaboration</span>
+                <span class="badge">AI-driven Automation & Optimization</span>
+                <span class="badge">Team Leadership & Agile Delivery</span>
+            </div>
+        </section>
 
-    <div class="card">
-      <h2>Adroitent ITES Global Services</h2>
-      <h3>Test Lead | Sep 2015 – Oct 2022 | USA (Wolters Kluwer)</h3>
-      <p><strong>Projects:</strong> PE-thePoint, Concepts, DocuCare</p>
-      <p><strong>Tools:</strong> C#, MVC.Net, LINQ, SharePoint, Azure, AWS, SQL Server, Visual Studio, N-unit</p>
-      <p>Developed learning resources for healthcare professionals with adaptive learning, simulations, and digital textbooks.</p>
-    </div>
-
-    <div class="card">
-      <h2>Adroitent ITES Global Services</h2>
-      <h3>Senior Test Analyst | 2014 – 2015 | USA (Wolters Kluwer)</h3>
-      <p><strong>Projects:</strong> OvidMD, OvidSP</p>
-      <p><strong>Tools:</strong> ASP.Net, C#, LINQ, Solr, Couchbase, SQL Server</p>
-      <p>Clinical tools and search platforms providing quick access to medical research and bibliographic databases.</p>
-    </div>
-
-    <div class="card">
-      <h2>Adroitent ITES Global Services</h2>
-      <h3>Senior Test Analyst | Feb 2014 – Apr 2014 | USA (Engage Point)</h3>
-      <p><strong>Project:</strong> Engage Point Financials</p>
-      <p><strong>Tools:</strong> Java, Jenkins, GitHub, SOAP UI, JIRA</p>
-      <p>Financial transaction and payment processing system for multi-program environments.</p>
-    </div>
-
-    <div class="card">
-      <h2>Sonata Software Limited</h2>
-      <h3>Techno Functional Consultant | 2013 | UK (TUI)</h3>
-      <p><strong>Project:</strong> Touristic Union International (TUI)</p>
-      <p><strong>Tools:</strong> Java, Selenium, TestNG, Maven</p>
-      <p>Delivered B2B and B2C travel applications with booking and agent support features.</p>
-    </div>
-
-    <div class="card">
-      <h2>Sonata Software Limited</h2>
-      <h3>Techno Functional Consultant | Jun 2013 – Nov 2013 | USA (Microsoft)</h3>
-      <p><strong>Project:</strong> Microsoft Dynamics CRM</p>
-      <p><strong>Tools:</strong> C#.NET, ASP.NET, SQL Server, JQuery</p>
-      <p>Customized CRM platform for sales, marketing, and customer service automation.</p>
-    </div>
-
-    <div class="card">
-      <h2>Jasper Industries (J.L Software Solutions)</h2>
-      <h3>Quality Assurance Engineer | 2011 – 2013 | USA (Green Clinical Systems)</h3>
-      <p><strong>Projects:</strong> Person Health Record (PHR), Electronic Health Record (EHR)</p>
-      <p><strong>Tools:</strong> Java, Spring, Hibernate, MySQL, Adobe Flex</p>
-      <p>Developed certified healthcare record systems for physicians and hospitals, enabling electronic prescriptions and patient data management.</p>
-    </div>
-
-  </div>
-</body>
-</html>
+        <!-- Professional Experience -->
+        <section>
+            <h3><i class="fa-solid fa-rocket"></i> Professional Experience</h3>
+            <div class="timeline">
+                
+                <div class="job-card">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Senior Automation Test Analyst</span><br>
+                            <span class="job-company">Experian India Services</span>
+                        </div>
+                        <span class="job-date">2022 – 2026</span>
+                    </div>
+                    <ul>
