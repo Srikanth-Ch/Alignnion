@@ -1,324 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SrikanthC‑Portfolio</title>
-    <!-- Semantic FontAwesome Icons -->
-    <script src="https://cloudflare.com"></script>
-    <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #0f172a;
-            --bg-light: #f8fafc;
-            --text-main: #334155;
-            --text-dark: #0f172a;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--secondary) 0%, #1e293b 100%);
-            color: white;
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .header-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            letter-spacing: -0.5px;
-        }
-
-        header h2 {
-            font-size: 1.5rem;
-            color: #93c5fd;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-        }
-
-        .summary {
-            font-size: 1.1rem;
-            max-width: 850px;
-            margin: 0 auto;
-            color: #cbd5e1;
-            text-align: justify;
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-        }
-
-        section {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border);
-        }
-
-        section h3 {
-            font-size: 1.6rem;
-            color: var(--text-dark);
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        section h3 i {
-            color: var(--primary);
-        }
-
-        /* Responsive Grid Formats */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        /* Domain Cards */
-        .domain-card {
-            background: var(--bg-light);
-            padding: 1.25rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .domain-card h4 {
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Professional Experience Timeline */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .job-card {
-            border-left: 3px solid var(--border);
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .job-card::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 4px;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background: var(--primary);
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            margin-bottom: 0.75rem;
-        }
-
-        .job-title {
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            font-weight: 700;
-        }
-
-        .job-company {
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        .job-date {
-            background: #dbeafe;
-            color: var(--primary-dark);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .job-card ul, .project-card ul {
-            list-style-type: none;
-        }
-
-        .job-card li, .project-card li {
-            position: relative;
-            padding-left: 1.25rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .job-card li::before, .project-card li::before {
-            content: "•";
-            color: var(--primary);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* Project Display Layout */
-        .project-card {
-            background: var(--bg-light);
-            padding: 1.75rem;
-            border-radius: 8px;
-            border-top: 4px solid var(--primary);
-        }
-
-        .project-card h4 {
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .project-loc {
-            font-size: 0.9rem;
-            color: #64748b;
-            margin-bottom: 0.75rem;
-            font-style: italic;
-        }
-
-        /* Visual Pill Tags & Badges */
-        .badge-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .badge {
-            background: #e2e8f0;
-            color: var(--text-dark);
-            padding: 0.4rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .badge-cert {
-            background: #f0fdf4;
-            color: #166534;
-            border: 1px solid #bbf7d0;
-        }
-
-        .badge-award {
-            background: #fffbeb;
-            color: #92400e;
-            border: 1px solid #fde68a;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        footer {
-            background: var(--secondary);
-            color: #94a3b8;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 5rem;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            .job-header { flex-direction: column; gap: 0.5rem; }
-            section { padding: 1.5rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <div class="header-container">
-            <h1>QA Automation Architect / Lead</h1>
-            <h2>~15 Years Building Enterprise Scale Automation</h2>
-            <p class="summary">
-                QA Automation Architect/Lead with ~ 15 years building enterprise scale automation across healthcare, finance, and insurance. Experience in architecting robust frameworks using Selenium, .Net C#, Playwright, Python, and API microservices automation, delivering faster execution, higher coverage. Visionary contribution to integrating GenAI, LLM, RAG, MCP into QA workflows, aligning test strategy with business objectives, and empowering QA teams to accelerate releases, reduce costs, and transform quality engineering into a strategic business advantage to align with stakeholders. Driving stakeholder satisfaction by strengthening product quality through consumer reports, enforcing quality gateways, and implementing rollback‑ready test strategies to reduce release risks, downstream implications.
-            </p>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SrikanthC - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header Navigation -->
+    <header class="header">
+      <nav class="nav-container">
+        <a href="#" class="nav-link active">SrikanthC-Portfolio</a>
+        <a href="#" class="nav-link">QA Playbook</a>
+        <a href="#" class="nav-link">AI Lens</a>
+        <a href="#" class="nav-link">Contact</a>
+      </nav>
     </header>
 
-    <main>
-        <!-- Domain Portfolio -->
-        <section>
-            <h3><i class="fa-solid fa-briefcase"></i> Domain & Product Portfolio</h3>
-            <div class="grid-2">
-                <div class="domain-card">
-                    <h4>Healthcare</h4>
-                    <p>Wolters Kluwer (thePoint, Nursing Concepts, DocuCare, OvidMD/SP, Phoenix) | EngagePoint Financials | Green Clinical (EHR/EMR/PHR)</p>
-                </div>
-                <div class="domain-card">
-                    <h4>Fintech & Credit</h4>
-                    <p>Experian Services (EBC, EBA, BIQ Legacy, NIKE, Bottlenecks)</p>
-                </div>
-                <div class="domain-card">
-                    <h4>Enterprise ERP</h4>
-                    <p>Microsoft CRM (Dynamics 365 Core Platforms)</p>
-                </div>
-                <div class="domain-card">
-                    <h4>E-commerce & Travel</h4>
-                    <p>TUI Group (Global Booking & Reservation Ecosystem)</p>
-                </div>
-            </div>
-        </section>
+    <!-- Main Viewport Layout -->
+    <main class="container">
+      <!-- Portfolio Summary -->
+      <section class="summary-section">
+        <h2 class="section-title">Portfolio Summary</h2>
+        <p>
+          QA Automation Architect/Lead with ~ 15 years building enterprise scale automation across healthcare, finance,
+          and insurance. Experience in architecting robust frameworks using Selenium, .Net C#, Playwright, Python, and
+          API microservices automation, delivering faster execution, higher coverage. Visionary contribution to
+          integrating GenAI, LLM, RAG, MCP into QA workflows, aligning test strategy with business objectives, and
+          empowering QA teams to accelerate releases, reduce costs, and transform quality engineering into a strategic
+          business advantage to align with stakeholders. Driving stakeholder satisfaction by strengthening product
+          quality through consumer reports, enforcing quality gateways, and implementing rollback‑ready test strategies
+          to reduce release risks, downstream implications.
+        </p>
+      </section>
 
-        <!-- Core Strengths -->
-        <section>
-            <h3><i class="fa-solid fa-key"></i> Core Strengths</h3>
-            <div class="badge-container">
-                <span class="badge">Test Automation Strategy & Framework Design</span>
-                <span class="badge">API Automation & Cloud Integration (AWS, Azure)</span>
-                <span class="badge">CI/CD Pipeline Integration & DevOps Collaboration</span>
-                <span class="badge">AI-driven Automation & Optimization</span>
-                <span class="badge">Team Leadership & Agile Delivery</span>
-            </div>
-        </section>
+      <!-- Two Column Content Layout -->
+      <div class="content-grid">
+        <!-- Left Column -->
+        <div class="column">
+          <section class="card">
+            <h3 class="card-title">DOMAIN &amp; PRODUCT PORTFOLIO</h3>
+            <ul class="portfolio-list">
+              <li>
+                <strong>Healthcare:</strong>
+                Wolters Kluwer (thePoint, Nursing Concepts, DocuCare, OvidMD/SP, Phoenix) | EngagePoint Financials |
+                Green Clinical (EHR/EMR/PHR)
+              </li>
+              <li>
+                <strong>Fintech &amp; Credit:</strong>
+                Experian Services (EBC, EBA, BIQ Legacy, NIKE, Bottlenecks)
+              </li>
+              <li>
+                <strong>Enterprise ERP:</strong>
+                Microsoft CRM (Dynamics 365 Core Platforms)
+              </li>
+              <li>
+                <strong>E-commerce &amp; Travel:</strong>
+                TUI Group (Global Booking &amp; Reservation Ecosystem)
+              </li>
+            </ul>
+          </section>
 
-        <!-- Professional Experience -->
-        <section>
-            <h3><i class="fa-solid fa-rocket"></i> Professional Experience</h3>
-            <div class="timeline">
-                
-                <div class="job-card">
-                    <div class="job-header">
-                        <div>
-                            <span class="job-title">Senior Automation Test Analyst</span><br>
-                            <span class="job-company">Experian India Services</span>
-                        </div>
-                        <span class="job-date">2022 – 2026</span>
-                    </div>
-                    <ul>
+          <section class="card">
+            <h3 class="card-title">🚀 Professional Experience</h3>
+
+            <div class="job-block">
+              <div class="job-header">
+                <span class="job-role">Senior Automation Test Analyst</span>
+                <span class="job-company">Experian India Services (2022 – 2026)</span>
+              </div>
+              <ul class="job-desc">
+                <li>
+                  Led automation initiatives across multiple flagship products (BusinessIQ Legacy, Bottlenecks, Experian
+                  Business Customer).
+                </li>
+                <li>
+                  Designed and optimized robust automation frameworks using Java, C#, Spring, AWS, Playwright, Python
+                  BDD, SQL, MongoDB, and CI/CD pipelines.
+                </li>
+                <li>Spearheaded API automation with sandbox collections, queues, AWS DynamoDB, and CloudWatch.</li>
+                <li>Integrated Gen AI tools into automation workflows, enabling smarter decision-making.</li>
+                <li>Directed diverse teams of engineers and analysts, fostering innovation and collaboration.</li>
+                <li>
+                  Delivered measurable ROI by reducing manual effort, increasing test execution cycles, and improving
+                  performance of automation scripts.
+                </li>
+              </ul>
+            </div>
+
+            <div class="job-block">
+              <div class="job-header">
+                <span class="job-role">Test Lead</span>
+                <span class="job-company">Adroitent ITES Global Services (2014 – 2022)</span>
+              </div>
+              <ul class="job-desc">
+                <li>
+                  Managed QA delivery for healthcare and education platforms (PE-thePoint, DocuCare, OvidMD, OvidSP).
+                </li>
+                <li>Implemented automation frameworks with C#, MVC.Net, Azure, AWS, SQL Server, N-unit, MS Test.</li>
+                <li>Designed reusable methods, pseudocode algorithms, and stabilized automation test suites.</li>
+                <li>
+                  Ensured compliance with healthcare standards while delivering adaptive learning and patient simulation
+                  solutions.
+                </li>
+              </ul>
+            </div>
+
+            <div class="job-block">
+              <div class="job-header">
+                <span class="job-role">Techno Functional Consultant</span>
+                <span class="job-company">Sonata Software Limited (2013)</span>
+              </div>
+              <ul class="job-desc">
+                <li>Delivered solutions for TUI UK travel systems and Microsoft Dynamics CRM.</li>
+                <li>
+                  Worked on B2B and B2C applications, integrating booking systems, CRM workflows, and customer
+                  engagement platforms.
+                </li>
+              </ul>
+            </div>
+
+            <div class="job-block">
+              <div class="job-header">
+                <span class="job-role">Quality Assurance Engineer</span>
+                <span class="job-company">Jasper Industries (2011 – 2013)</span>
+              </div>
+              <ul class="job-desc">
+                <li>Contributed to Electronic Health Record (EHR) and Personal Health Record (PHR) systems.</li>
+                <li>Ensured ONC-certified compliance for e-prescriptions and streamlined patient data management.</li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <!-- Right Column -->
+        <div class="column">
+          <section class="card">
+            <h3 class="card-title">PROJECTS</h3>
+
+            <div class="project-block">
+              <span class="project-name">AI-Powered No-Code Test Automation Platform | Experian India</span>
+              <p>
+                Designed and delivered a no-code/low-code automation platform enabling non-technical users to author and
+                execute tests without scripting, powered by GenAI and MCP tools.
+              </p>
+              <p>
+                Integrated Stagehand and Playwright MCP for prompt-based test generation, reducing manual test authoring
+                effort by ~70%.
+              </p>
+            </div>
+
+            <div class="project-block">
+              <span class="project-name">Enterprise RabbitMQ Event Driven Validation Testing | Experian India</span>
+              <p>
+                Designed a reusable work flows for RabbitMQ event driven validation for AWS Lambda, Messaging Queue, and
+                Events modules used across engineering teams.
+              </p>
+              <p>
+                Significantly reduced event-driven defects in production by enabling asynchronous workflow validation at
+                scale.
+              </p>
+            </div>
+
+            <div class="project-block">
+              <span class="project-name">API Performance Benchmarking Suite | Experian India</span>
+              <p>
+                Built a performance benchmarking API automation framework with minimize scripting, run rate limits tests
+                concurrently, streamline assertions.
+              </p>
+              <p>Built a scalable API sandbox collection framework with continuous performance regression detection.</p>
+            </div>
+          </section>
+
+          <section class="card">
+            <h3 class="card-title">🏆 Awards</h3>
+            <ul class="simple-list">
+              <li>
+                <strong>Spot Award (2025):</strong>
+                Seamless QA delivery at Experian.
+              </li>
+              <li>
+                <strong>Spot Award (2024):</strong>
+                Reduced API Test Suite Execution Time by 95%.
+              </li>
+              <li>
+                <strong>STAR VIP Recognition (2017):</strong>
+                Automation framework adoption at Wolters Kluwer.
+              </li>
+            </ul>
+          </section>
+
+          <div class="sub-grid">
+            <section class="card">
+              <h3 class="card-title">🎓 Certifications</h3>
+              <ul class="simple-list">
+                <li>AWS Solutions Architect – Associate</li>
+                <li>Microsoft Azure Fundamentals</li>
+                <li>Agile Leadership – Scrum Alliance</li>
+                <li>AWS Cloud Technical Essentials</li>
+              </ul>
+            </section>
+
+            <section class="card">
+              <h3 class="card-title">🔑 Core Strengths</h3>
+              <ul class="simple-list">
+                <li>Test Automation Strategy &amp; Framework Design</li>
+                <li>API Automation &amp; Cloud Integration (AWS, Azure)</li>
+                <li>CI/CD Pipeline Integration &amp; DevOps Collaboration</li>
+                <li>AI-driven Automation &amp; Optimization</li>
+                <li>Team Leadership &amp; Agile Delivery</li>
+              </ul>
+            </section>
+          </div>
+
+          <section class="card">
+            <h3 class="card-title">INTERESTS</h3>
+            <!-- Updated Interests Section at Bottom -->
+            <section class="card interests-card">
+              <h3 class="card-title">💡 Areas of Focus &amp; Interests</h3>
+              <p class="interests-text">
+                Lifelong Learner | AI &amp; Generative AI Research | Boilerplate Test Automation Innovation | Developer
+                Productivity Tools | Open-Source Contributions | Technical Blogging
+              </p>
+            </section>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
