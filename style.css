@@ -1,85 +1,19 @@
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  margin: 0;
-  background: #f4f6f9;
-  color: #333;
+.tab-content h2, .tab-content h3 {
+  margin-top: 20px;
+  color: #005a9e;
 }
 
-.header {
-  background: #0078d7;
-  padding: 10px 20px;
+.tab-content ul {
+  list-style: none;
+  padding: 0;
 }
 
-.nav-container {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.tab-link {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1rem;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.tab-link:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-}
-
-.tab-link.active {
-  border-bottom: 3px solid #fff;
-  font-weight: bold;
-}
-
-.container {
-  padding: 20px;
-}
-
-.tab-content {
-  display: none;
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-.hero {
-  background: linear-gradient(to right, #0078d7, #005a9e);
-  color: #fff;
-  text-align: center;
-  padding: 80px 20px;
-  border-radius: 8px;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.hero-btn {
+.tab-content ul li {
   background: #fff;
-  color: #0078d7;
-  padding: 12px 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease, color 0.3s ease;
-}
-
-.hero-btn:hover {
-  background: #0078d7;
-  color: #fff;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .project-block {
@@ -88,14 +22,4 @@ body {
   margin-bottom: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.project-name {
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
